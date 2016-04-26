@@ -71,7 +71,7 @@ body {
   background: none;
   text-align: left;
   color: #fff;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .imgAuthor {
@@ -125,6 +125,7 @@ body {
   z-index: 1001;
   color: #fff;
   font-size: 16pt;
+  overflow-y: auto;
 }
 
 .divShow img {
@@ -137,16 +138,22 @@ body {
 
 .captionShowImg {
   display: inline-block;
-  width: auto;
-  max-height: 150px;
-  overflow-y: auto;
+  width: 100%;
 }
 
+@media (max-width: 1300px) {
+  .imgByInst {
+    width: 90%;
+  }
+}
 @media (max-width: 990px) {
   .imgByInst {
     width: 39%;
   }
 
+  .author {
+    overflow: auto;
+  }
 
   .wraperForText {
     font-size: 35px;
@@ -162,7 +169,7 @@ body {
     border-radius: 50px;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 550px) {
   .imgByInst {
     width: 90%;
   }
