@@ -58,6 +58,12 @@ viewTagControllers.controller('viewTagCtrl', ['$scope', '$http', 'Instagram', '$
             $scope.objShowImg = img;
         };
 
+        $scope.checkTimeForReload = function(img){
+            if($scope.timeForReload<1){
+              $scope.timeForReload = 1
+            }
+        };
+
         $scope.reloadTag();
         $scope.startTimerForReload();
   }]);
