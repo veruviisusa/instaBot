@@ -22,6 +22,9 @@ viewTagControllers.controller('viewTagCtrl', ['$scope', '$http', 'Instagram', '$
         $scope.getTag = function(count,tag){
           return Instagram.get(count,tag);
         };
+          $scope.fillArray = function(imgs,array,maxLength){
+              return Instagram.fillArray(imgs,array,maxLength);
+          };
         $scope.reloadThirdMass = function(){
             $scope.flagForReload = true;
             $scope.timeAfterReload = 0;

@@ -8,35 +8,30 @@ viewTagFactory.factory('Instagram', ['$http', 'Helper',
         var accessToken = '488650556.1677ed0.24168c818b81426eb3d1017e6d041d20';
         return {
             'reloadTag': function(scope) {
-                //scope.imgMasFirst = [];
-                //scope.imgMasSecond = [];
                 scope.getTag(scope.count, scope.tagFirst).success(function(response) {
-                    for(var x in response.data){
-                        if(!Helper.findInMas(response.data[x].images.low_resolution.url,scope.imgMasFirst)){
-                            scope.imgMasFirst.unshift(response.data[x].images.low_resolution.url);
-                        }
-                        while(scope.imgMasFirst.length>scope.count){
-                            scope.imgMasFirst.splice(scope.imgMasFirst.length-1,1);
-                        }
-                    }
+                    scope.imgMasFirst = scope.fillArray(response.data,scope.imgMasFirst,scope.count);
                     scope = scope.reloadThirdMass();
                 }).error(function(response){
                     console.log(response);
                 });
                 scope.getTag(scope.count, scope.tagSecond).success(function(response) {
-                    for(var x in response.data){
-                        if(!Helper.findInMas(response.data[x].images.low_resolution.url,scope.imgMasSecond)){
-                            scope.imgMasSecond.unshift(response.data[x].images.low_resolution.url);
-                        }
-                        while(scope.imgMasSecond.length>scope.count){
-                            scope.imgMasSecond.splice(scope.imgMasSecond.length-1,1);
-                        }
-                    }
+                    scope.imgMasSecond = scope.fillArray(response.data,scope.imgMasSecond,scope.count);
                     scope = scope.reloadThirdMass();
                 }).error(function(response){
                     console.log(response);
                 });
                 return scope;
+            },
+            'fillArray': function(imgs,array,maxLength) {
+                for(var x in imgs){
+                    if(!Helper.findInMas(imgs[x].images.low_resolution.url,array)){
+                        array.unshift(imgs[x].images.low_resolution.url);
+                    }
+                    while(array.length>maxLength){
+                        array.splice(array.length-1,1);
+                    }
+                }
+                return array;
             },
             'get': function(count, hashtag) {
                 var request = '/tags/' + hashtag + '/media/recent';
