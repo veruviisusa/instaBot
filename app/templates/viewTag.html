@@ -4,7 +4,7 @@
 
             <div class="panel panel-success">
                 <div class="panel-body">
-                    <h2>обновлять каждые <input ng-model="timeForReload"> милисекунд</h2>
+                    <h2>обновлять каждые <input ng-model="timeForReload" ng-keyup="validTimeForReload()"> секунд</h2>
                 </div>
             </div>
 
@@ -14,11 +14,11 @@
         <div class="col-md-12 timerDiv" >
 
             <div class="panel panel-success">
-                <div class="panel-heading lineTimer" style="width: {{timeToReload*100000/timeForReload}}%;"></div>
+                <div class="panel-heading lineTimer" style="width: {{timeToReload*100/timeForReload}}%;"></div>
             </div>
 
             <div class="timerDivText" >
-                время до автоматического обновления: {{timeToReload}} секунд
+                время до автоматического обновления (сек): {{timeToReload}} &nbsp&nbsp&nbsp&nbsp<input type="checkbox" ng-model="checkTimer"> автообновление
             </div>
         </div>
     </div>

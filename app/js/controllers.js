@@ -17,10 +17,11 @@ viewTagControllers.controller('viewTagCtrl', ['$scope', '$http', 'Instagram', '$
         $scope.flagForReload = true;
         $scope.timeAfterReload = 0;
         $scope.stepForInterval = 100;
-        $scope.timeForReload = 10000;
+        $scope.timeForReload = 10;
         $scope.timeToReload = 0;
         $scope.showImg = false;
         $scope.objShowImg = {};
+        $scope.checkTimer = true;
 
         $scope.getTag = function(count,tag){
           return Instagram.get(count,tag);
@@ -42,19 +43,25 @@ viewTagControllers.controller('viewTagCtrl', ['$scope', '$http', 'Instagram', '$
 
         $scope.startTimerForReload = function(){
             var timer = $interval(function() {
-                if($scope.flagForReload && !$scope.showImg){
+                if($scope.checkTimer && $scope.flagForReload && !$scope.showImg){
                     $scope.timeAfterReload+=$scope.stepForInterval;
-                    if($scope.timeAfterReload>=$scope.timeForReload){
+                    if($scope.timeAfterReload>=$scope.timeForReload*1000){
                         $scope.reloadTag();
                     }
                 }
-                $scope.timeToReload = ($scope.timeForReload-$scope.timeAfterReload)/1000;
+                $scope.timeToReload = Math.floor(($scope.timeForReload*1000-$scope.timeAfterReload)/1000);
             }, $scope.stepForInterval);
         };
 
         $scope.openShow = function(img){
             $scope.showImg = true;
             $scope.objShowImg = img;
+        };
+
+        $scope.validTimeForReload = function(){
+            if($scope.timeForReload<10){
+                $scope.timeForReload = 10;
+            }
         };
 
         $scope.reloadTag();
