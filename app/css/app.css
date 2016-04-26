@@ -1,0 +1,37 @@
+/* app css stylesheet */
+
+body {
+  padding-top: 20px;
+}
+
+.imgByInst {
+  width: 40%;
+  heigth: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5%;
+}
+
+.divAll {
+  text-align: center;
+}
+
+.divImg {
+  width: 100%;
+  max-height: 600px;
+  overflow-y: auto;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.titleTag {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 20pt;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #000;
+  height: 54px;
+}
