@@ -19,7 +19,7 @@ sudo apt-get install nodejs<br>
 установка npm:<br>
 sudo apt-get install npm<br>
 
-копирование проекта:
+копирование проекта:<br>
 1. откройте терминал в директории, где хотите работать<br>
 2. выполните git clone https://github.com/veruviisusa/instaBot.git<br>
 3. выполните cd instaBot
