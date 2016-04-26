@@ -1,11 +1,17 @@
 # instaBot
 1. Клонируйте проект себе на компьютер
 2. Проверьте, чтобы у вас был установлен nodejs и npm
-    а. Установка nodejs:
-        sudo apt-get update
-        sudo apt-get install nodejs
-    б. Установка npm
-        sudo apt-get install npm
+2.1 Установка nodejs:
+2.1.1 sudo apt-get update
+2.1.2 sudo apt-get install nodejs
+2.2 Установка npm:
+2.2.1 sudo apt-get install npm
 3. Откройте директорию проекта в терминале
-4. Запустите npm start
+4. Запустите npm start (при первом запуске node скачает в каталог все необходимые компоненты и модули)
 5. Откройте в бразуере http://localhost:8000/app/index.html
+
+Чтобы запустить unit тесты необходимо:
+1. Открыть проект в новом терминале
+2. Запустить npm test
+3. Подождать пока karma запустит новое окно бразуера для тестирования
+4. Смотреть результат в терминале

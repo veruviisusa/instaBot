@@ -11,62 +11,80 @@ describe('PhoneCat controllers', function() {
     });
   });
 
-  beforeEach(module('phonecatApp'));
-  beforeEach(module('phonecatServices'));
+  beforeEach(module('viewTagApp'));
 
-  describe('PhoneListCtrl', function(){
+  describe('viewTagCtrl', function(){
     var scope, ctrl, $httpBackend;
 
-    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
-      $httpBackend = _$httpBackend_;
-      $httpBackend.expectGET('phones/phones.json').
-          respond([{name: 'Nexus S'}, {name: 'Motorola DROID'}]);
-
+    beforeEach(inject(function($rootScope, $controller) {
       scope = $rootScope.$new();
-      ctrl = $controller('PhoneListCtrl', {$scope: scope});
+      ctrl = $controller('viewTagCtrl', {$scope: scope});
     }));
 
-
-    it('should create "phones" model with 2 phones fetched from xhr', function() {
-      expect(scope.phones).toEqualData([]);
-      $httpBackend.flush();
-
-      expect(scope.phones).toEqualData(
-          [{name: 'Nexus S'}, {name: 'Motorola DROID'}]);
+    it('should set the default value of tag1', function() {
+      expect(scope.tagFirst).toBe('cat');
+    });
+    it('should set the default value of tag1', function() {
+      expect(scope.tagSecond).toBe('dog');
     });
 
-
-    it('should set the default value of orderProp model', function() {
-      expect(scope.orderProp).toBe('age');
+    it('should set the false when change value of tag1', function() {
+      scope.tagFirst = "cats";
+      expect(scope.flagForReload).toBe(false);
     });
-  });
-
-
-  describe('PhoneDetailCtrl', function(){
-    var scope, $httpBackend, ctrl,
-        xyzPhoneData = function() {
-          return {
-            name: 'phone xyz',
-                images: ['image/url1.png', 'image/url2.png']
+    it('should set the false when change value of tag2', function() {
+      scope.tagSecond = "dogs";
+      expect(scope.flagForReload).toBe(false);
+    });
+    it('should fill array by imgs', function() {
+      var imgs = [{
+        images: {
+          low_resolution: {
+            url: 'url1'
           }
-        };
-
-
-    beforeEach(inject(function(_$httpBackend_, $rootScope, $routeParams, $controller) {
-      $httpBackend = _$httpBackend_;
-      $httpBackend.expectGET('phones/xyz.json').respond(xyzPhoneData());
-
-      $routeParams.phoneId = 'xyz';
-      scope = $rootScope.$new();
-      ctrl = $controller('PhoneDetailCtrl', {$scope: scope});
-    }));
-
-
-    it('should fetch phone detail', function() {
-      expect(scope.phone).toEqualData({});
-      $httpBackend.flush();
-
-      expect(scope.phone).toEqualData(xyzPhoneData());
+        }
+      },{
+        images: {
+          low_resolution: {
+            url: 'url2'
+          }
+        }
+      },{
+        images: {
+          low_resolution: {
+            url: 'url3'
+          }
+        }
+      },{
+        images: {
+          low_resolution: {
+            url: 'url4'
+          }
+        }
+      },{
+        images: {
+          low_resolution: {
+            url: 'url5'
+          }
+        }
+      },{
+        images: {
+          low_resolution: {
+            url: 'url6'
+          }
+        }
+      },{
+        images: {
+          low_resolution: {
+            url: 'url7'
+          }
+        }
+      }];
+      var array = [];
+      array = scope.fillArray(imgs,array,5);
+      expect(array.length).toBe(5);
     });
+
   });
+
 });
