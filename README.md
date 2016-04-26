@@ -16,6 +16,7 @@ git config --global user.email "youremail@domain.com"
 sudo apt-get update
 sudo apt-get install nodejs
 
+
 установка npm:
 sudo apt-get install npm
 
