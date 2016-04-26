@@ -33,7 +33,7 @@
                             <img src="{{img.images.low_resolution.url}}" width="100%">
                             <div class="fon" ng-show="img.show_fon"></div>
 
-                            <div class="author" ng-show="img.show_fon">
+                            <div class="author" ng-show="img.show_fon" ng-click="openShow(img);">
                                 <div class="wraperForAuthoImg"><img src="{{img.user.profile_picture}}" class="imgAuthor"></div>
 
                                 <div class="wraperForText">
@@ -41,7 +41,6 @@
                                     лайки: {{img.likes.count}}<br>
                                     комментарии: {{img.comments.count}}<br>
                                     <a href="{{img.link}}" target="_blank">ссылка</a><br>
-                                    <span ng-click="openShow(img);">просмотр</span>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +59,7 @@
                             <img src="{{img.images.low_resolution.url}}" width="100%">
                             <div class="fon" ng-show="img.show_fon"></div>
 
-                            <div class="author" ng-show="img.show_fon">
+                            <div class="author" ng-show="img.show_fon" ng-click="openShow(img);">
                                 <div class="wraperForAuthoImg"><img src="{{img.user.profile_picture}}" class="imgAuthor"></div>
 
                                 <div class="wraperForText">
@@ -68,7 +67,6 @@
                                     лайки: {{img.likes.count}}<br>
                                     комментарии: {{img.comments.count}}<br>
                                     <a href="{{img.link}}" target="_blank">ссылка</a><br>
-                                    <span ng-click="openShow(img);">просмотр</span>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +85,7 @@
                             <img src="{{img.images.low_resolution.url}}" width="100%">
                             <div class="fon" ng-show="img.show_fon"></div>
 
-                            <div class="author" ng-show="img.show_fon">
+                            <div class="author" ng-show="img.show_fon" ng-click="openShow(img);">
                                 <div class="wraperForAuthoImg"><img src="{{img.user.profile_picture}}" class="imgAuthor"></div>
 
                                 <div class="wraperForText">
@@ -95,7 +93,6 @@
                                     лайки: {{img.likes.count}}<br>
                                     комментарии: {{img.comments.count}}<br>
                                     <a href="{{img.link}}" target="_blank">ссылка</a><br>
-                                    <span ng-click="openShow(img);">просмотр</span>
                                 </div>
                             </div>
                         </div>
@@ -111,7 +108,7 @@
             {{objShowImg.user.username}}&nbsp&nbsp&nbsp&nbsp
             лайки: {{objShowImg.likes.count}}&nbsp&nbsp&nbsp&nbsp
             комментарии: {{objShowImg.comments.count}}&nbsp&nbsp&nbsp&nbsp
-            <a href="{{objShowImg.link}}" target="_blank">ссылка</a><br>
+            <a href="{{objShowImg.link}}" target="_blank">ссылка</a><br><br>
             <div class="captionShowImg">{{objShowImg.caption.text}}</div>
         </div>
     </div>
