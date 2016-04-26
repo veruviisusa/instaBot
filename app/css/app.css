@@ -135,6 +135,13 @@ body {
   cursor: pointer;
 }
 
+.captionShowImg {
+  display: inline-block;
+  width: auto;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
 @media (max-width: 990px) {
   .imgByInst {
     width: 39%;

@@ -80,10 +80,11 @@
         <div class="fonShow" ng-click="showImg=false" ng-show="showImg"></div>
         <div class="divShow" ng-click="showImg=false" ng-show="showImg">
             <img src="{{objShowImg.images.standard_resolution.url}}"><br>
-            {{objShowImg.user.username}}<br>
-            лайки: {{objShowImg.likes.count}}<br>
-            комментарии: {{objShowImg.comments.count}}<br>
-            <a href="{{objShowImg.link}}" target="_blank">ссылка</a>
+            {{objShowImg.user.username}}&nbsp&nbsp&nbsp&nbsp
+            лайки: {{objShowImg.likes.count}}&nbsp&nbsp&nbsp&nbsp
+            комментарии: {{objShowImg.comments.count}}&nbsp&nbsp&nbsp&nbsp
+            <a href="{{objShowImg.link}}" target="_blank">ссылка</a><br>
+            <div class="captionShowImg">{{objShowImg.caption.text}}</div>
         </div>
     </div>
 </div>

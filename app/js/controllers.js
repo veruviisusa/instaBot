@@ -42,7 +42,7 @@ viewTagControllers.controller('viewTagCtrl', ['$scope', '$http', 'Instagram', '$
 
         $scope.startTimerForReload = function(){
             var timer = $interval(function() {
-                if($scope.flagForReload){
+                if($scope.flagForReload && !$scope.showImg){
                     $scope.timeAfterReload+=$scope.stepForInterval;
                     if($scope.timeAfterReload>=$scope.timeForReload){
                         $scope.reloadTag();
