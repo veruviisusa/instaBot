@@ -1,12 +1,22 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 timerDiv" >
-            обновлять каждые <input ng-model="timeForReload"> милисекунд
+        <div class="col-md-12 timerInputDiv" >
+
+            <div class="panel panel-success">
+                <div class="panel-body">
+                    <h2>обновлять каждые <input ng-model="timeForReload"> милисекунд</h2>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="row">
         <div class="col-md-12 timerDiv" >
-            <div class="lineTimer" style="width: {{timeToReload*100000/timeForReload}}%;"></div>
+
+            <div class="panel panel-success">
+                <div class="panel-heading lineTimer" style="width: {{timeToReload*100000/timeForReload}}%;"></div>
+            </div>
+
             <div class="timerDivText" >
                 время до автоматического обновления: {{timeToReload}} секунд
             </div>
@@ -14,67 +24,85 @@
     </div>
     <div class="row">
         <div class="col-md-4 divAll">
-            <div class="titleTag">tag1:<br>#<input ng-model="tagFirst" size="{{tagFirst.length}}" ng-keyup="reloadTag()"><br><br></div>
-            <div class="divImg">
-                <div class="imgByInst" ng-repeat="img in imgMasFirst" ng-mouseover="img.show_fon = true" ng-mouseleave="img.show_fon = false">
-                    <img src="{{img.images.low_resolution.url}}" width="100%">
-                    <div class="fon" ng-show="img.show_fon"></div>
 
-                    <div class="author" ng-show="img.show_fon">
-                        <div class="wraperForAuthoImg"><img src="{{img.user.profile_picture}}" class="imgAuthor"></div>
+            <div class="panel panel-success">
+                <div class="panel-heading"><h3>tag1:#<input ng-model="tagFirst" size="{{tagFirst.length}}" ng-keyup="reloadTag()"></h3></div>
+                <div class="panel-body">
+                    <div class="divImg">
+                        <div class="imgByInst" ng-repeat="img in imgMasFirst" ng-mouseover="img.show_fon = true" ng-mouseleave="img.show_fon = false">
+                            <img src="{{img.images.low_resolution.url}}" width="100%">
+                            <div class="fon" ng-show="img.show_fon"></div>
 
-                        <div class="wraperForText">
-                            {{img.user.username}}<br>
-                            лайки: {{img.likes.count}}<br>
-                            комментарии: {{img.comments.count}}<br>
-                            <a href="{{img.link}}" target="_blank">ссылка</a><br>
-                            <span ng-click="openShow(img);">просмотр</span>
+                            <div class="author" ng-show="img.show_fon">
+                                <div class="wraperForAuthoImg"><img src="{{img.user.profile_picture}}" class="imgAuthor"></div>
+
+                                <div class="wraperForText">
+                                    {{img.user.username}}<br>
+                                    лайки: {{img.likes.count}}<br>
+                                    комментарии: {{img.comments.count}}<br>
+                                    <a href="{{img.link}}" target="_blank">ссылка</a><br>
+                                    <span ng-click="openShow(img);">просмотр</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <div class="col-md-4 divAll">
-            <div class="titleTag">tag2:<br>#<input ng-model="tagSecond" size="{{tagSecond.length}}" ng-keyup="reloadTag()"><br><br></div>
-            <div class="divImg">
-                <div class="imgByInst" ng-repeat="img in imgMasSecond" ng-mouseover="img.show_fon = true" ng-mouseleave="img.show_fon = false">
-                    <img src="{{img.images.low_resolution.url}}" width="100%">
-                    <div class="fon" ng-show="img.show_fon"></div>
 
-                    <div class="author" ng-show="img.show_fon">
-                        <div class="wraperForAuthoImg"><img src="{{img.user.profile_picture}}" class="imgAuthor"></div>
+            <div class="panel panel-success">
+                <div class="panel-heading"><h3>tag2:#<input ng-model="tagSecond" size="{{tagSecond.length}}" ng-keyup="reloadTag()"></h3></div>
+                <div class="panel-body">
+                    <div class="divImg">
+                        <div class="imgByInst" ng-repeat="img in imgMasSecond" ng-mouseover="img.show_fon = true" ng-mouseleave="img.show_fon = false">
+                            <img src="{{img.images.low_resolution.url}}" width="100%">
+                            <div class="fon" ng-show="img.show_fon"></div>
 
-                        <div class="wraperForText">
-                            {{img.user.username}}<br>
-                            лайки: {{img.likes.count}}<br>
-                            комментарии: {{img.comments.count}}<br>
-                            <a href="{{img.link}}" target="_blank">ссылка</a><br>
-                            <span ng-click="openShow(img);">просмотр</span>
+                            <div class="author" ng-show="img.show_fon">
+                                <div class="wraperForAuthoImg"><img src="{{img.user.profile_picture}}" class="imgAuthor"></div>
+
+                                <div class="wraperForText">
+                                    {{img.user.username}}<br>
+                                    лайки: {{img.likes.count}}<br>
+                                    комментарии: {{img.comments.count}}<br>
+                                    <a href="{{img.link}}" target="_blank">ссылка</a><br>
+                                    <span ng-click="openShow(img);">просмотр</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <div class="col-md-4 divAll">
-            <div class="titleTag">#{{tagFirst}}<br>with<br>#{{tagSecond}}</div>
-            <div class="divImg" id="lastDiv">
-                <div class="imgByInst" ng-repeat="img in imgMasFirstWithSecond" ng-mouseover="img.show_fon = true" ng-mouseleave="img.show_fon = false">
-                    <img src="{{img.images.low_resolution.url}}" width="100%">
-                    <div class="fon" ng-show="img.show_fon"></div>
 
-                    <div class="author" ng-show="img.show_fon">
-                        <div class="wraperForAuthoImg"><img src="{{img.user.profile_picture}}" class="imgAuthor"></div>
+            <div class="panel panel-success">
+                <div class="panel-heading"><h3>#{{tagFirst}} with #{{tagSecond}}</h3></div>
+                <div class="panel-body">
+                    <div class="divImg" id="lastDiv">
+                        <div class="imgByInst" ng-repeat="img in imgMasFirstWithSecond" ng-mouseover="img.show_fon = true" ng-mouseleave="img.show_fon = false">
+                            <img src="{{img.images.low_resolution.url}}" width="100%">
+                            <div class="fon" ng-show="img.show_fon"></div>
 
-                        <div class="wraperForText">
-                            {{img.user.username}}<br>
-                            лайки: {{img.likes.count}}<br>
-                            комментарии: {{img.comments.count}}<br>
-                            <a href="{{img.link}}" target="_blank">ссылка</a><br>
-                            <span ng-click="openShow(img);">просмотр</span>
+                            <div class="author" ng-show="img.show_fon">
+                                <div class="wraperForAuthoImg"><img src="{{img.user.profile_picture}}" class="imgAuthor"></div>
+
+                                <div class="wraperForText">
+                                    {{img.user.username}}<br>
+                                    лайки: {{img.likes.count}}<br>
+                                    комментарии: {{img.comments.count}}<br>
+                                    <a href="{{img.link}}" target="_blank">ссылка</a><br>
+                                    <span ng-click="openShow(img);">просмотр</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div class="fonShow" ng-click="showImg=false" ng-show="showImg"></div>

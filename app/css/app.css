@@ -24,10 +24,6 @@ body {
   width: 100%;
   max-height: 600px;
   overflow-y: auto;
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
 }
 
 .titleTag {
@@ -54,6 +50,10 @@ body {
   height: 54px;
   text-align: center;
   position: relative;
+}
+
+.timerInputDiv {
+  text-align: center;
 }
 
 .fon, .author, .fonShow, .divShow  {
@@ -98,7 +98,6 @@ body {
 .lineTimer {
   width: 100%;
   height: 50px;
-  background: #00ff00;
 }
 
 .timerDivText {
