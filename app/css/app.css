@@ -47,7 +47,7 @@ body {
   margin-bottom: 20px;
   font-size: 20pt;
   padding-bottom: 10px;
-  height: 54px;
+  min-height: 54px;
   text-align: center;
   position: relative;
 }
@@ -71,6 +71,7 @@ body {
   background: none;
   text-align: left;
   color: #fff;
+  overflow: auto;
 }
 
 .imgAuthor {
@@ -97,7 +98,7 @@ body {
 
 .lineTimer {
   width: 100%;
-  height: 50px;
+  min-height: 50px;
 }
 
 .timerDivText {
@@ -144,6 +145,21 @@ body {
 @media (max-width: 990px) {
   .imgByInst {
     width: 39%;
+  }
+
+
+  .wraperForText {
+    font-size: 35px;
+  }
+  .divShow {
+    font-size: 35pt;
+  }
+
+  .imgAuthor {
+    width: 100px;
+    height: auto;
+    margin-top: 5px;
+    border-radius: 50px;
   }
 }
 @media (max-width: 400px) {
