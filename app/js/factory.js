@@ -24,8 +24,9 @@ viewTagFactory.factory('Instagram', ['$http', 'Helper',
             },
             'fillArray': function(imgs,array,maxLength) {
                 for(var x in imgs){
-                    if(!Helper.findInMas(imgs[x].images.low_resolution.url,array)){
-                        array.unshift(imgs[x].images.low_resolution.url);
+                    if(!Helper.findInMas(imgs[x],array)){
+                        imgs[x].show_fon = false;
+                        array.unshift(imgs[x]);
                     }
                     while(array.length>maxLength){
                         array.splice(array.length-1,1);
@@ -48,7 +49,7 @@ viewTagFactory.factory('Instagram', ['$http', 'Helper',
             'reloadThirdMas': function(scope) {
                 for(var i = 0; i< scope.imgMasFirst.length; i++){
                     for(var j = 0; j< scope.imgMasSecond.length; j++){
-                        if(scope.imgMasFirst[i]==scope.imgMasSecond[j] && !Helper.findInMas(scope.imgMasFirst[i],scope.imgMasFirstWithSecond)){
+                        if(scope.imgMasFirst[i].images.low_resolution.url==scope.imgMasSecond[j].images.low_resolution.url && !Helper.findInMas(scope.imgMasFirst[i],scope.imgMasFirstWithSecond)){
                             scope.imgMasFirstWithSecond.unshift(scope.imgMasFirst[i]);
                             break;
                         }

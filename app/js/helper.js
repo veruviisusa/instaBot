@@ -8,7 +8,7 @@ helperFactory.factory('Helper', [
         return {
             'findInMas': function(el,mas) {
                 for(var i = 0; i< mas.length; i++){
-                    if(el==mas[i]){
+                    if(el.images.low_resolution.url==mas[i].images.low_resolution.url){
                         return true;
                     }
                 }
