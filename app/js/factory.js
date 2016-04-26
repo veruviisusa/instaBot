@@ -8,12 +8,15 @@ viewTagFactory.factory('Instagram', ['$http', 'Helper',
         var accessToken = '488650556.1677ed0.24168c818b81426eb3d1017e6d041d20';
         return {
             'reloadTag': function(scope) {
-                scope.imgMasFirst = [];
-                scope.imgMasSecond = [];
+                //scope.imgMasFirst = [];
+                //scope.imgMasSecond = [];
                 scope.getTag(scope.count, scope.tagFirst).success(function(response) {
                     for(var x in response.data){
-                        if(!Helper.findInMas(response.data[x].images.low_resolution.url,scope.imgMasFirst) && scope.imgMasFirst.length<scope.count){
+                        if(!Helper.findInMas(response.data[x].images.low_resolution.url,scope.imgMasFirst)){
                             scope.imgMasFirst.unshift(response.data[x].images.low_resolution.url);
+                        }
+                        while(scope.imgMasFirst.length>scope.count){
+                            scope.imgMasFirst.splice(scope.imgMasFirst.length-1,1);
                         }
                     }
                     scope = scope.reloadThirdMass();
@@ -22,8 +25,11 @@ viewTagFactory.factory('Instagram', ['$http', 'Helper',
                 });
                 scope.getTag(scope.count, scope.tagSecond).success(function(response) {
                     for(var x in response.data){
-                        if(!Helper.findInMas(response.data[x].images.low_resolution.url,scope.imgMasSecond) && scope.imgMasSecond.length<scope.count){
+                        if(!Helper.findInMas(response.data[x].images.low_resolution.url,scope.imgMasSecond)){
                             scope.imgMasSecond.unshift(response.data[x].images.low_resolution.url);
+                        }
+                        while(scope.imgMasSecond.length>scope.count){
+                            scope.imgMasSecond.splice(scope.imgMasSecond.length-1,1);
                         }
                     }
                     scope = scope.reloadThirdMass();
