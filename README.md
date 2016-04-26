@@ -5,19 +5,19 @@
 
 для адекватной работы с проектом вам понадобится: git, nodejs, npm
 
-установка git:
-sudo apt-get update
-sudo apt-get install git
-настройка git:
-git config --global user.name "Your Name"
-git config --global user.email "youremail@domain.com"
+установка git:<br>
+sudo apt-get update<br>
+sudo apt-get install git<br>
+настройка git:<br>
+git config --global user.name "Your Name"<br>
+git config --global user.email "youremail@domain.com"<br>
 
-установка nodejs:
-sudo apt-get update
-sudo apt-get install nodejs
+установка nodejs:<br>
+sudo apt-get update<br>
+sudo apt-get install nodejs<br>
 
-установка npm:
-sudo apt-get install npm
+установка npm:<br>
+sudo apt-get install npm<br>
 
 копирование проекта:
 1. откройте терминал в директории, где хотите работать
